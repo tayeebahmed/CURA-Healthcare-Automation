@@ -28,6 +28,10 @@ class HistoryPage:
         return self.driver.find_element(*self.confirm_history_facility).text
 
     def click_logout(self):
-        self.driver.find_element(*self.field_logout).click()
+        logout = self.driver.find_element(*self.field_logout)
+
+        self.driver.execute_script(
+            "arguments[0].click();", logout
+        )
 
         
